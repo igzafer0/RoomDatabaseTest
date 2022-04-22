@@ -38,6 +38,8 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
             val email = inputEmail.value!!
             insert(SubscriberModel(0, name, email))
         }
+        inputName.value = null
+        inputEmail.value = null
     }
 
     fun clearAllOrDelete() {
@@ -46,7 +48,8 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
         } else {
             clearAll()
         }
-
+        inputName.value = null
+        inputEmail.value = null
 
     }
 
@@ -91,8 +94,7 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
         isUpdateOrDelete = false
         saveOrUpdateButtonText.value = "Kaydet"
         clearAllOrDeleteButtonText.value = "Tümünü Sil"
-        inputName.value = null
-        inputEmail.value = null
+
     }
 
     private fun isUpdateOrDeleteOn(subscriber: SubscriberModel) {
@@ -100,7 +102,6 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
         isUpdateOrDelete = true
         saveOrUpdateButtonText.value = "Güncelle"
         clearAllOrDeleteButtonText.value = "Sil"
-        inputName.value = null
-        inputEmail.value = null
+
     }
 }
